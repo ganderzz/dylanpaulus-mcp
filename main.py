@@ -1,8 +1,9 @@
 import os
 from mcp.server.fastmcp import FastMCP
 
-mcp = FastMCP("Dylan Paulus MCP")
+mcp = FastMCP("dp_mcp")
 
+# (EDIT THIS): I'm assuming the mcp server lives in the same `project` directory as the `dylanpaulus.com` repo
 POSTS_PATH = os.path.join("..", "dylanpaulus.com", "src", "content", "post")
 
 
@@ -21,6 +22,7 @@ def get_posts() -> str:
     return contents
 
 
+# (TODO): Dynamic paths don't work with Claude UI, so using tool
 @mcp.tool()
 def get_post(post_name: str) -> str:
     """Get a specific post"""
